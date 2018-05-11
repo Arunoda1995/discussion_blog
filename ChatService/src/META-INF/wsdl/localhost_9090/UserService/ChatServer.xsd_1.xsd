@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://Server/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Server/">
+
+<xs:element name="closeDB" type="tns:closeDB"/>
+
+<xs:element name="closeDBResponse" type="tns:closeDBResponse"/>
+
+<xs:element name="connectDB" type="tns:connectDB"/>
+
+<xs:element name="connectDBResponse" type="tns:connectDBResponse"/>
+
+<xs:element name="getCurrentUser" type="tns:getCurrentUser"/>
+
+<xs:element name="getCurrentUserResponse" type="tns:getCurrentUserResponse"/>
+
+<xs:element name="getEditedUser" type="tns:getEditedUser"/>
+
+<xs:element name="getEditedUserResponse" type="tns:getEditedUserResponse"/>
+
+<xs:element name="getThreadMessage" type="tns:getThreadMessage"/>
+
+<xs:element name="getThreadMessageResponse" type="tns:getThreadMessageResponse"/>
+
+<xs:element name="insertMessage" type="tns:insertMessage"/>
+
+<xs:element name="insertMessageResponse" type="tns:insertMessageResponse"/>
+
+<xs:element name="insertThread" type="tns:insertThread"/>
+
+<xs:element name="insertThreadResponse" type="tns:insertThreadResponse"/>
+
+<xs:element name="registerUser" type="tns:registerUser"/>
+
+<xs:element name="registerUserResponse" type="tns:registerUserResponse"/>
+
+<xs:element name="updateEditUser" type="tns:updateEditUser"/>
+
+<xs:element name="updateEditUserResponse" type="tns:updateEditUserResponse"/>
+
+<xs:element name="validateLoginID" type="tns:validateLoginID"/>
+
+<xs:element name="validateLoginIDResponse" type="tns:validateLoginIDResponse"/>
+
+<xs:element name="validateUser" type="tns:validateUser"/>
+
+<xs:element name="validateUserResponse" type="tns:validateUserResponse"/>
+
+<xs:complexType name="closeDB">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="closeDBResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertMessage">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="threadid" type="xs:string" minOccurs="0"/>
+<xs:element name="editedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="editedDate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertMessageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="connectDB">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="connectDBResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentUser">
+<xs:sequence>
+<xs:element name="loginID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getCurrentUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateUser">
+<xs:sequence>
+<xs:element name="loginID" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEditUser">
+<xs:sequence>
+<xs:element name="threadEditedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="threadEditedDate" type="xs:string" minOccurs="0"/>
+<xs:element name="threadId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEditUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getThreadMessage">
+<xs:sequence>
+<xs:element name="threadId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getThreadMessageResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:viewEditUser" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewEditUser">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="threadCreatedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="threadCreatedDate" type="xs:string" minOccurs="0"/>
+<xs:element name="threadEditedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="threadEditedDate" type="xs:string" minOccurs="0"/>
+<xs:element name="threadID" type="xs:string" minOccurs="0"/>
+<xs:element name="threadTitle" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerUser">
+<xs:sequence>
+<xs:element name="nickname" type="xs:string" minOccurs="0"/>
+<xs:element name="loginID" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateLoginID">
+<xs:sequence>
+<xs:element name="loginID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateLoginIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEditedUser">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getEditedUserResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:viewEditUser" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertThread">
+<xs:sequence>
+<xs:element name="creatBy" type="xs:string" minOccurs="0"/>
+<xs:element name="createDate" type="xs:string" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+<xs:element name="userName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertThreadResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
